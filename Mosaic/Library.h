@@ -2,7 +2,7 @@
 #define _LIBRARY_H_
 
 // SFML
-//#include <SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 // Стандартные
 #include <cmath>

@@ -13,11 +13,12 @@ public:
 	virtual ~ViewControllerBase() = default;
 
 	virtual void getView(sf::RenderWindow & window) = 0;
-	virtual int controller(sf::RenderWindow & window, int16_t x, int16_t y) = 0;
+	virtual int16_t controller(sf::RenderWindow & window, int16_t x, int16_t y) = 0;
 
-	int getNumImage() { return numImage; };
-	int getDiffLvl() { return diffLvl; };
-	void setnumImage(int16_t num) { numImage = num; };
+	int16_t getNumImage() { return numImage; };
+	int16_t getDiffLvl() { return diffLvl; };
+
+	void setNumImage(int16_t num) { numImage = num; };
 	void setDiffLvl(int16_t dif) { diffLvl = dif; };
 
 	void changeScale(sf::Sprite& spr, float height, float width);

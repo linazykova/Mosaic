@@ -148,12 +148,16 @@
     <ClCompile Include="GamePazzle.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ViewControllerBase.cpp" />
+    <ClCompile Include="ViewControllerGame.cpp" />
+    <ClCompile Include="ViewControllerMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="GamePazzle.h" />
     <ClInclude Include="Library.h" />
     <ClInclude Include="ViewControllerBase.h" />
+    <ClInclude Include="ViewControllerGame.h" />
+    <ClInclude Include="ViewControllerMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

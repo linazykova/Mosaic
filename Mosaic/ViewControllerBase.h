@@ -3,6 +3,10 @@
 
 #include "Library.h"
 
+typedef sf::Texture Texture;
+typedef sf::Sprite Sprite;
+typedef sf::Image Image;
+
 class ViewControllerBase
 {
 protected:

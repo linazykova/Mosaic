@@ -3,6 +3,8 @@
 
 #include "ViewControllerGame.h"
 
+class ViewControllerGame;
+
 class GameSprite
 {
 private:

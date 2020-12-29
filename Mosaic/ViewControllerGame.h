@@ -5,6 +5,7 @@
 #include "GameSprite.h"
 #include "Button.h"
 
+class GameSprite;
 
 class ViewControllerGame : public ViewControllerBase
 {

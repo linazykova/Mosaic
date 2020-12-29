@@ -18,7 +18,7 @@ bool ViewControllerGame::isWin(sf::RenderWindow& window)
 	getView(window);
 
 	Texture wT;
-	wT.loadFromFile("win.png");
+	wT.loadFromFile("resources/win.png");
 
 	Sprite win;
 	win.setTexture(wT);
@@ -59,7 +59,7 @@ ViewControllerGame::ViewControllerGame(int16_t numI, int16_t diff)
 	{
 		Image Im_I;
 
-		if (Im_I.loadFromFile("FonGame.jpg") != false) 
+		if (Im_I.loadFromFile("resources/game.png") != false) 
 		{
 			tFon.loadFromImage(Im_I);
 
@@ -77,28 +77,28 @@ ViewControllerGame::ViewControllerGame(int16_t numI, int16_t diff)
 
 		if (numImage == 1) 
 		{
-			Im_I.loadFromFile("Image1.jpg");
+			Im_I.loadFromFile("resources/Image1.jpg");
 			tGame.loadFromImage(Im_I);
 			count++;
 		}
 
 		else if (numImage == 2)
 		{
-			Im_I.loadFromFile("Image2.jpg");
+			Im_I.loadFromFile("resources/Image2.jpg");
 			tGame.loadFromImage(Im_I);
 			count++;
 		}
 
 		else if (numImage == 3)
 		{
-			Im_I.loadFromFile("Image3.jpg");
+			Im_I.loadFromFile("resources/Image3.jpg");
 			tGame.loadFromImage(Im_I);
 			count++;
 		}
 
 		else if (numImage == 4)
 		{
-			Im_I.loadFromFile("Image4.jpg");
+			Im_I.loadFromFile("resources/Image4.jpg");
 			tGame.loadFromImage(Im_I);
 			count++;
 		}
@@ -210,7 +210,7 @@ ViewControllerGame::ViewControllerGame(int16_t numI, int16_t diff)
 
 
 	//Controller
-	BMenu = new Button(0, 705, 475, 759);								// нопка выхода в меню
+	BMenu = new Button(0, 708, 213, 767);								// нопка выхода в меню
 }
 
 ViewControllerGame::~ViewControllerGame()

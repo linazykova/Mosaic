@@ -4,7 +4,7 @@
 #include "ViewControllerMenu.h"
 #include "ViewControllerGame.h"
 
-#define SCREEN_WIDTH 1366
+#define SCREEN_WIDTH 1327
 #define SCREEN_HEIGHT 768
 
 typedef sf::Event Event;

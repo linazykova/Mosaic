@@ -21,7 +21,6 @@ private:
 
 	//For ControllerMenu
 	Button* BattonExit1;
-	Button* BattonExit2;
 	Button* BattonStart;
 	Button* BattonIm1;
 	Button* BattonIm2;

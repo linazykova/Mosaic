@@ -4,7 +4,7 @@ ViewControllerMenu::ViewControllerMenu()
 {
 	Image Im_I;							//image для загрузки туда текстур и получения спрайтов
 
-	Im_I.loadFromFile("Fon.jpg");
+	Im_I.loadFromFile("resources/menu.png");
 	//Спрайт фона
 	T5.loadFromImage(Im_I);
 
@@ -13,15 +13,15 @@ ViewControllerMenu::ViewControllerMenu()
 
 	int16_t count = 0;
 
-	Im_I.loadFromFile("Image1.jpg");
+	Im_I.loadFromFile("resources/Image1.jpg");
 
 	if (T1.loadFromImage(Im_I)) 
 	{									//Если картинка загружена пользователем в папку проекта
 
 		Image1.setTexture(T1);
 
-		changeScale(Image1, 271, 386);	// Подгоняем размеры (соотношение расширения не искажается)
-		Image1.setPosition(9, 135);		// устанавливаем Спрайт на нужную нам позицию
+		changeScale(Image1, 277, 377);	// Подгоняем размеры (соотношение расширения не искажается)
+		Image1.setPosition(7, 132);		// устанавливаем Спрайт на нужную нам позицию
 		count++;
 	}
 
@@ -30,15 +30,15 @@ ViewControllerMenu::ViewControllerMenu()
 		std::cout << "Файл Image1 не найден" << std::endl;
 	}
 
-	Im_I.loadFromFile("Image2.jpg");
+	Im_I.loadFromFile("resources/Image2.jpg");
 
 	if (T2.loadFromImage(Im_I)) 
 	{									//Если картинка загружена пользователем в папку проекта
 
 		Image2.setTexture(T2);
 
-		changeScale(Image2, 271, 377);	// Подгоняем размеры (соотношение расширения не искажается)
-		Image2.setPosition(397, 135);	// устанавливаем Спрайт на нужную нам позиц
+		changeScale(Image2, 277, 383);	// Подгоняем размеры (соотношение расширения не искажается)
+		Image2.setPosition(391, 132);	// устанавливаем Спрайт на нужную нам позиц
 		count++;
 	}
 
@@ -48,15 +48,15 @@ ViewControllerMenu::ViewControllerMenu()
 	}
 
 
-	Im_I.loadFromFile("Image3.jpg");
+	Im_I.loadFromFile("resources/Image3.jpg");
 
 	if (T3.loadFromImage(Im_I)) 
 	{									//Если картинка загружена пользователем в папку проекта
 
 		Image3.setTexture(T3);
 
-		changeScale(Image3, 299, 386);	// Подгоняем размеры (соотношение расширения не искажается)
-		Image3.setPosition(9, 408);		// устанавливаем Спрайт на нужную нам позицию
+		changeScale(Image3, 281, 388);	// Подгоняем размеры (соотношение расширения не искажается)
+		Image3.setPosition(7, 420);		// устанавливаем Спрайт на нужную нам позицию
 		count++;
 	}
 
@@ -66,15 +66,15 @@ ViewControllerMenu::ViewControllerMenu()
 	}
 
 
-	Im_I.loadFromFile("Image4.jpg");
+	Im_I.loadFromFile("resources/Image4.jpg");
 
 	if (T4.loadFromImage(Im_I)) 
 	{									//Если картинка загружена пользователем в папку проекта
 
 		Image4.setTexture(T4);
 
-		changeScale(Image4, 299, 377);	// Подгоняем размеры (соотношение расширения не искажается)
-		Image4.setPosition(397, 408);	// устанавливаем Спрайт на нужную нам позицию
+		changeScale(Image4, 281, 383);	// Подгоняем размеры (соотношение расширения не искажается)
+		Image4.setPosition(391, 420);	// устанавливаем Спрайт на нужную нам позицию
 		count++;
 	}
 
@@ -91,17 +91,18 @@ ViewControllerMenu::ViewControllerMenu()
 
 	//For controller 
 
-	BattonExit1 = new Button(9, 7, 69, 67);
-	BattonExit2 = new Button(70, 24, 177, 51);
-	BattonStart = new Button(977, 24, 1312, 73);
-	BattonIm1 = new Button(9, 135, 395, 406);
-	BattonIm2 = new Button(397, 135, 774, 406);
-	BattonIm3 = new Button(9, 409, 395, 706);
-	BattonIm4 = new Button(397, 408, 774, 706);
-	BattonR9 = new Button(815, 150, 1175, 214);
-	BattonR16 = new Button(815, 280, 1175, 345);
-	BattonR25 = new Button(815, 409, 1175, 473);
-	BattonR36 = new Button(815, 540, 1175, 604);
+	BattonExit1 = new Button(2, 4, 298, 70);
+	BattonStart = new Button(1093, 3, 1324, 70);
+
+	BattonIm1 = new Button(7, 132, 384, 409);
+	BattonIm2 = new Button(391, 132, 774, 409);
+	BattonIm3 = new Button(7, 420, 395, 701);
+	BattonIm4 = new Button(391, 420, 774, 701);
+
+	BattonR9 = new Button(860, 216, 1285, 315);
+	BattonR16 = new Button(860, 320, 1285, 420);
+	BattonR25 = new Button(860, 425, 1285, 525);
+	BattonR36 = new Button(860, 530, 1285, 629);
 
 	numImage = diffLvl = none;
 }
@@ -109,7 +110,6 @@ ViewControllerMenu::ViewControllerMenu()
 ViewControllerMenu::~ViewControllerMenu()
 {
 	delete BattonExit1;
-	delete BattonExit2;
 	delete BattonStart;
 	delete BattonIm1;
 	delete BattonIm2;
@@ -132,7 +132,7 @@ ViewControllerBase* ViewControllerMenu::Instance()
 
 int16_t ViewControllerMenu::controller(sf::RenderWindow& window, int16_t x, int16_t y)
 {
-	if ((BattonExit1->isPress(x, y)) || (BattonExit2->isPress(x, y))) 
+	if (BattonExit1->isPress(x, y)) 
 	{
 		window.close();
 		return 0;
@@ -146,7 +146,7 @@ int16_t ViewControllerMenu::controller(sf::RenderWindow& window, int16_t x, int1
 
 			Image Im_I;
 
-			Im_I.loadFromFile("er.png");
+			Im_I.loadFromFile("resources/er.png");
 
 			Texture T;
 			T.loadFromImage(Im_I);

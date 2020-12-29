@@ -32,6 +32,11 @@ private:
 	Button* BattonR36;
 
 
+	sf::RectangleShape choose_rect1, choose_rect2;
+	sf::Text choose_text;
+	sf::Font font;
+	bool font_error;
+
 	ViewControllerMenu();
 	ViewControllerMenu(const ViewControllerMenu& obg) = delete;
 

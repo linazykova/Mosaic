@@ -55,7 +55,7 @@ ViewControllerMenu::ViewControllerMenu()
 
 		Image3.setTexture(T3);
 
-		changeScale(Image3, 281, 388);	// Подгоняем размеры (соотношение расширения не искажается)
+		changeScale(Image3, 281, 377);	// Подгоняем размеры (соотношение расширения не искажается)
 		Image3.setPosition(7, 420);		// устанавливаем Спрайт на нужную нам позицию
 		count++;
 	}
@@ -105,6 +105,31 @@ ViewControllerMenu::ViewControllerMenu()
 	BattonR36 = new Button(860, 530, 1285, 629);
 
 	numImage = diffLvl = none;
+
+	choose_rect1.setFillColor(sf::Color::Cyan);
+	choose_rect1.setSize(sf::Vector2f(385, 285));
+	choose_rect1.setPosition(sf::Vector2f(-385, -285));
+
+	choose_rect2.setFillColor(sf::Color::Red);
+	choose_rect2.setSize(sf::Vector2f(421, 105));
+	choose_rect2.setPosition(sf::Vector2f(-421, -105));
+
+	// Подключение шрифта
+	font_error = false;
+	if (!font.loadFromFile("resources/fonts/calibri.ttf"))
+	{
+		std::cout << "\nFont error!" << std::endl;
+		font_error = true;
+	}
+
+	if (!font_error)
+	{
+		choose_text.setFont(font);
+		choose_text.setString(L"Выбрано");
+		choose_text.setCharacterSize(50);
+		choose_text.setStyle(sf::Text::Bold);
+		choose_text.setPosition(sf::Vector2f(970, 128));
+	}
 }
 
 ViewControllerMenu::~ViewControllerMenu()
@@ -162,15 +187,20 @@ int16_t ViewControllerMenu::controller(sf::RenderWindow& window, int16_t x, int1
 		return 1;
 	}
 
-	if (BattonIm1->isPress(x, y)) { numImage = Im1; }
-	else if (BattonIm2->isPress(x, y)) { numImage = Im2; }
-	else if (BattonIm3->isPress(x, y)) { numImage = Im3; }
-	else if (BattonIm4->isPress(x, y)) { numImage = Im4; }
+	float _x, _y;
+	_x = _y = 0.0f;
 
-	else if (BattonR9->isPress(x, y)) { diffLvl = 9; }
-	else if (BattonR16->isPress(x, y)) { diffLvl = 16; }
-	else if (BattonR25->isPress(x, y)) { diffLvl = 25; }
-	else if (BattonR36->isPress(x, y)) { diffLvl = 36; }
+	if (BattonIm1->isPress(x, y)) { numImage = Im1; choose_rect1.setPosition(sf::Vector2f(3, 126)); }
+	else if (BattonIm2->isPress(x, y)) { numImage = Im2; choose_rect1.setPosition(sf::Vector2f(3 + 385, 126)); }
+	else if (BattonIm3->isPress(x, y)) { numImage = Im3; choose_rect1.setPosition(sf::Vector2f(3, 126 + 290)); }
+	else if (BattonIm4->isPress(x, y)) { numImage = Im4; choose_rect1.setPosition(sf::Vector2f(3 + 385, 126 + 290)); }
+
+	else if (BattonR9->isPress(x, y)) { diffLvl = 9; choose_rect2.setPosition(sf::Vector2f(859, 212)); _x = 970; _y = 233; }
+	else if (BattonR16->isPress(x, y)) { diffLvl = 16; choose_rect2.setPosition(sf::Vector2f(859, 212 + 104)); _x = 970; _y = 338; }
+	else if (BattonR25->isPress(x, y)) { diffLvl = 25; choose_rect2.setPosition(sf::Vector2f(859, 212 + 104 + 105)); _x = 970; _y = 443; }
+	else if (BattonR36->isPress(x, y)) { diffLvl = 36; choose_rect2.setPosition(sf::Vector2f(859, 212 + 104 + 105 + 105)); _x = 970; _y = 548; }
+
+	if (!font_error && _x != 0.0f && y != 0.0f) choose_text.setPosition(sf::Vector2f(_x, _y));
 
 	return 0;
 }
@@ -178,8 +208,15 @@ int16_t ViewControllerMenu::controller(sf::RenderWindow& window, int16_t x, int1
 void ViewControllerMenu::getView(sf::RenderWindow& window)
 {
 	window.draw(Fon);
+
+	window.draw(choose_rect1);
+	window.draw(choose_rect2);
+	if (!font_error) window.draw(choose_text);
+
 	window.draw(Image1);
 	window.draw(Image2);
 	window.draw(Image3);
 	window.draw(Image4);
+
+	
 }

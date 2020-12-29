@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="GamePazzle.cpp" />
+    <ClCompile Include="GameSprite.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ViewControllerBase.cpp" />
     <ClCompile Include="ViewControllerGame.cpp" />
@@ -154,6 +155,7 @@
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="GamePazzle.h" />
+    <ClInclude Include="GameSprite.h" />
     <ClInclude Include="Library.h" />
     <ClInclude Include="ViewControllerBase.h" />
     <ClInclude Include="ViewControllerGame.h" />

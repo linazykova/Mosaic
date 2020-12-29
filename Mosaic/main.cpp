@@ -1,5 +1,10 @@
+#include "GamePazzle.h"
+#include <clocale>
 
-int main()
+int16_t main()
 {
-	return 0;
+	setlocale(LC_ALL, "rus");
+	GamePazzle myGame;
+
+	return myGame.startGame();
 }
